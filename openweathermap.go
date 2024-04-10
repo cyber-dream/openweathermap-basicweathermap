@@ -34,17 +34,18 @@ var (
 // DataUnits represents the character chosen to represent the temperature notation
 var DataUnits = map[string]string{"C": "metric", "F": "imperial", "K": "internal"}
 var (
-	baseURL        = "https://api.openweathermap.org/data/2.5/weather?%s"
-	onecallURL     = "https://api.openweathermap.org/data/2.5/onecall?%s"
-	iconURL        = "https://openweathermap.org/img/w/%s"
-	groupURL       = "http://api.openweathermap.org/data/2.5/group?%s"
-	stationURL     = "https://api.openweathermap.org/data/2.5/station?id=%d"
-	forecast5Base  = "https://api.openweathermap.org/data/2.5/forecast?appid=%s&%s&mode=json&units=%s&lang=%s&cnt=%d"
-	forecast16Base = "https://api.openweathermap.org/data/2.5/forecast/daily?appid=%s&%s&mode=json&units=%s&lang=%s&cnt=%d"
-	historyURL     = "https://api.openweathermap.org/data/2.5/history/%s"
-	pollutionURL   = "https://api.openweathermap.org/data/2.5/air_pollution?appid=%s&lat=%s&lon=%s"
-	uvURL          = "https://api.openweathermap.org/data/2.5/"
-	dataPostURL    = "https://openweathermap.org/data/post"
+	baseURL            = "https://api.openweathermap.org/data/2.5/weather?%s"
+	onecallURL         = "https://api.openweathermap.org/data/2.5/onecall?%s"
+	iconURL            = "https://openweathermap.org/img/w/%s"
+	groupURL           = "http://api.openweathermap.org/data/2.5/group?%s"
+	stationURL         = "https://api.openweathermap.org/data/2.5/station?id=%d"
+	forecast5Base      = "https://api.openweathermap.org/data/2.5/forecast?appid=%s&%s&mode=json&units=%s&lang=%s&cnt=%d"
+	forecast16Base     = "https://api.openweathermap.org/data/2.5/forecast/daily?appid=%s&%s&mode=json&units=%s&lang=%s&cnt=%d"
+	historyURL         = "https://api.openweathermap.org/data/2.5/history/%s"
+	pollutionURL       = "https://api.openweathermap.org/data/2.5/air_pollution?appid=%s&lat=%s&lon=%s"
+	uvURL              = "https://api.openweathermap.org/data/2.5/"
+	dataPostURL        = "https://openweathermap.org/data/post"
+	basicWeatherMapURL = "https://tile.openweathermap.org/map/%s/%d/%d/%d.png?appid=%s"
 )
 
 // LangCodes holds all supported languages to be used
@@ -185,8 +186,8 @@ type Clouds struct {
 	All int `json:"all"`
 }
 
-// 	return key
-// }
+//		return key
+//	}
 func setKey(key string) (string, error) {
 	if err := ValidAPIKey(key); err != nil {
 		return "", err
