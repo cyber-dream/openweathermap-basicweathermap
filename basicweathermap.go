@@ -39,7 +39,7 @@ func NewBasicWeatherMap(key string) *BasicWeatherMap {
 
 // Precipitation will provide a tile with data.
 func (wm *BasicWeatherMap) Precipitation(x int, y int, zoom int) (*bytes.Buffer, error) {
-	url := fmt.Sprintf(wm.baseURL, TemperatureLayer, x, y, zoom, wm.Key)
+	url := fmt.Sprintf(wm.baseURL, PrecipitationLayer, zoom, x, y, wm.Key)
 	response, err := wm.client.Get(url)
 	if err != nil {
 		return nil, err
